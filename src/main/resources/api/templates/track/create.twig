@@ -1,0 +1,17 @@
+{% extends "../request.twig" %}
+{% block request %}
+    "controller": "WorkspaceActionController",
+    "action": "insert",
+    "query": {
+        "domain": "task_timings",
+        "record": {
+            "task_id": {{ track.getTaskId() }},
+            "employee_id": {{ track.getEmployeeId() }},
+            "project_id": 1,
+            "priority": 100,
+            "begin": {{ track.getPeriod().getStartTime() }},
+            "end": {{ track.getPeriod().getEndTime() }},
+            "comment": "{{ track.getComment()}}"
+        }
+    }
+{% endblock %}
